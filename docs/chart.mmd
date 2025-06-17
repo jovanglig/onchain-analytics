@@ -1,0 +1,8 @@
+---
+id: 27aeb28d-89fb-4785-977a-d63bfc011c78
+---
+flowchart TD
+  A[Goldsky Stream - Solana transactions & instructions] --> B[ClickHouse Ingestion]
+  B --> C[DBT Models: Aggregates + Features]
+  C --> D[XGBoost / GNN Tagging]
+  D --> E[Materialized Views / API for labels]
