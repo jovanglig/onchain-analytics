@@ -1,4 +1,4 @@
-name: solana
+name: solanapipeline
 resource_size: s
 apiVersion: 3
 sources:
@@ -21,16 +21,16 @@ transforms: {}
 sinks:
   token_transfers:
     type: clickhouse
-    secret_name: CLICKHOUSE_SECRET_CMC3HWR090
+    secret_name: CLICKHOUSE_SECRET_CMC3JLWCD0
     from: source_1
     table: instructions
-  sink_2:
+  accounts:
     type: clickhouse
-    secret_name: CLICKHOUSE_SECRET_CMC3HWR090
+    secret_name: CLICKHOUSE_SECRET_CMC3JLWCD0
     from: source_2
     table: accounts
-  sink_3:
+  tokens:
     type: clickhouse
-    secret_name: CLICKHOUSE_SECRET_CMC3HWR090
+    secret_name: CLICKHOUSE_SECRET_CMC3JLWCD0
     from: source_3
     table: tokens
