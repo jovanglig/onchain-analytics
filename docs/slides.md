@@ -166,3 +166,6 @@ Goldsky's Solana dataset is not the cleanest, I have encountered the following i
 
 ## Final outcome
 
+- The int_transfers table is an intermediate table whereby 1 row : 1 token transfer and includes columns for token_out and token_in aggregated across instructions, including the volumes of the trades and token metadata.
+
+- This table will eventually be rolled up with accounts table to be able to calculate token balance over time and Pnl, both are necessary to calculate the tags introduced earlier.
