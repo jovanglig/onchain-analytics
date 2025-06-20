@@ -1,0 +1,12 @@
+
+[sqlfluff]
+dialect = clickhouse
+templater = dbt
+exclude_rules = L009,L031,L034
+format = sql
+
+[sqlfluff:rules]
+max_line_length = 120
+
+[sqlfluff:templater:dbt]
+profiles_dir = .

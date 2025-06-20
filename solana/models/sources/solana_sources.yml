@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: solana
+    schema: solana
+    tables:
+      - name: accounts
+      - name: tokens
+      - name: instructions
+      - name: token_transfers
+     

@@ -1,0 +1,36 @@
+{
+    "dbt.enableNewLineagePanel": false,
+    "sqlfluff.config": "${workspaceFolder}/solana/.sqlfluff",
+  "sqlfluff.dialect": "clickhouse",
+  "sqlfluff.env.environmentVariables": [
+    {
+      "key": "example_key",
+      "value": "example_value"
+    }
+  ],
+  "sqlfluff.env.customDotEnvFiles": [
+    "${workspaceFolder}/.env"
+  ],
+  "sqlfluff.env.useDotEnvFile": true,
+  "sqlfluff.excludeRules": ["L009"],
+  "sqlfluff.executablePath": ".venv/bin/sqlfluff",
+  "sqlfluff.ignoreLocalConfig": false,
+  "sqlfluff.ignoreParsing": false,
+  "sqlfluff.rules": [],
+  "sqlfluff.suppressNotifications": false,
+  "sqlfluff.workingDirectory": "",
+  /* Linter */
+  "sqlfluff.linter.arguments": [],
+  "sqlfluff.linter.run": "onType",
+  "sqlfluff.linter.diagnosticSeverity": "error",
+  "sqlfluff.linter.diagnosticSeverityByRule": [
+    {
+      "rule": "L010",
+      "severity": "warning"
+    }
+  ],
+  "sqlfluff.linter.lintEntireProject": true,
+  /* Formatter */
+  "sqlfluff.format.arguments": ["--FIX-EVEN-UNPARSABLE"],
+  "sqlfluff.format.enabled": true,
+}
