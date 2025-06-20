@@ -1,0 +1,36 @@
+name: solanapipeline
+resource_size: s
+apiVersion: 3
+sources:
+  source_1:
+    type: dataset
+    dataset_name: solana.edge_instructions
+    version: 1.0.0
+    start_at: earliest
+  source_2:
+    type: dataset
+    dataset_name: solana.edge_accounts
+    version: 1.0.0
+    start_at: earliest
+  source_3:
+    type: dataset
+    dataset_name: solana.edge_tokens
+    version: 1.0.0
+    start_at: earliest
+transforms: {}
+sinks:
+  token_transfers:
+    type: clickhouse
+    secret_name: CLICKHOUSE_SECRET_CMC3JLWCD0
+    from: source_1
+    table: instructions
+  accounts:
+    type: clickhouse
+    secret_name: CLICKHOUSE_SECRET_CMC3JLWCD0
+    from: source_2
+    table: accounts
+  tokens:
+    type: clickhouse
+    secret_name: CLICKHOUSE_SECRET_CMC3JLWCD0
+    from: source_3
+    table: tokens
