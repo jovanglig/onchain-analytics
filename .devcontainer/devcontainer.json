@@ -14,14 +14,7 @@
         "esbenp.prettier-vscode",
         "innoverio.vscode-dbt-power-user",
         "sqlfluff.sqlfluff"
-      ],
-      "forwardPorts": [8080],
-      "portsAttributes": {
-          "8080": {
-              "label": "Webserver",
-              "onAutoForward": "openBrowser"
-          }
-      }
+      ]
     }
   },
   "remoteUser": "vscode"
