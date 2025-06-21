@@ -40,10 +40,9 @@ amounts as (
     -- try extracting token amount if present
     toFloat64OrNull(JSONExtractString(params, 'amount')) as token_amount_raw,
 
-    toFloat64OrNull(extract(
-      JSONExtractString(params, 'tokenamount'),
-      'amount:([0-9]+)'
-    )) as token_amount
+    toFloat64OrNull(
+  JSONExtractString(JSONExtractString(params, 'tokenAmount'), 'amount')
+    ) as token_amount
 
   from tr
 ),
@@ -65,7 +64,7 @@ wallets as (
 destinations as (
   select
     tx_signature,
-    account as destination
+    destination
   from (
     select *,
       row_number() over (partition by tx_signature order by index desc) as rn
@@ -124,8 +123,6 @@ aggregated as (
     tki.name as token_in_name,
     tki.symbol as token_in_symbol,
     tki.uri as token_in_uri,
-
-    -- Replace sumif with SUM + CASE WHEN
     sum(
       case when a.authority = w.wallet then coalesce(a.token_amount, a.token_amount_raw) / pow(10, 9) else 0 end
     ) as token_amount_out,
@@ -144,4 +141,4 @@ aggregated as (
   group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 )
 
-select * from amounts
+select * from aggregated
