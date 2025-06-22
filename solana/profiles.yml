@@ -6,7 +6,7 @@ solana:
       driver: http
       schema: dbt
       host: jsxrmzzbl6.europe-west4.gcp.clickhouse.cloud
-      user: jgligorevic
-      password: 'Jolesrbine-1994'
+      user: developer
+      password: "{{ env_var('CLICKHOUSE_PASSWORD') }}"
       secure: True
       verify: False
